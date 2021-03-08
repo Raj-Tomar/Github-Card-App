@@ -8,7 +8,7 @@ const CardList = (props) => {
     //     ];
     return (
         <div>
-            {props.profiles.map(profile => <Card {...profile} />)}
+            {props.profiles.map(profile => <Card key={profile.id} {...profile} />)}
             {/* <Card {...testData[0]}/>
             <Card {...testData[1]}/>
             <Card {...testData[2]}/> */}

@@ -12,6 +12,8 @@ const testData = [
     {name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook"},
   ];
 
+  // Github UserName : gaearon, sophiebits, sebmarkbage, bvaughn
+
 class App extends React.Component {
 
   // constructor
@@ -30,14 +32,23 @@ class App extends React.Component {
 
   // Short form of above constructor code
   state = {
-    profiles: testData,
+    //profiles: testData,
+    profiles: [],
+  }
+
+  addNewProfile = (profileData) => {
+    console.log('App', profileData);
+    // Append New Profile data in profiles:
+    this.setState(preState => ({
+      profiles: [...preState.profiles, profileData],
+    }));
   }
 
   render() {
     return(
       <div>
         <div className="header">{this.props.title}</div>
-        <Form />
+        <Form onSubmit={this.addNewProfile}/>
         <CardList profiles={this.state.profiles}/>
         <ConditionalStyle/>
       </div>
